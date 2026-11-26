@@ -1,127 +1,276 @@
-// ---------- Mobile menu ----------
-const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
+/* =====================================================
+   A.J-DEV INC. HOME PAGE JAVASCRIPT
+   1. Your contact details (edit here)
+   2. Header and mobile menu
+   3. Smooth "Back to top"
+   4. Service cards
+   5. Scroll fade in and out
+   6. Hero slider
+   7. Contact form
+   ===================================================== */
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", function () {
-        const open = navMenu.classList.toggle("show-menu");
-        menuToggle.setAttribute("aria-expanded", open);
-    });
 
-    navMenu.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            navMenu.classList.remove("show-menu");
-            menuToggle.setAttribute("aria-expanded", "false");
-        });
-    });
+/* =====================================================
+   1. YOUR CONTACT DETAILS
+   WhatsApp format: country code + number, no "+" or spaces
+   ===================================================== */
+var CONFIG = {
+  email: "ayijohn28@gmail.com",
+  whatsapp: "2348135314019",
+  phoneText: "+234 813 531 4019"
+};
+
+document.getElementById("yr").textContent = new Date().getFullYear();
+document.getElementById("mailText").textContent = CONFIG.email;
+document.getElementById("mailLink").href = "mailto:" + CONFIG.email;
+document.getElementById("fMail").textContent = CONFIG.email;
+document.getElementById("fPhone").textContent = CONFIG.phoneText;
+
+var waMessage = encodeURIComponent("Hello A.J-Dev, I’d like to enquire about a website.");
+document.getElementById("waBtn").href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + waMessage;
+
+
+/* =====================================================
+   2. HEADER AND MOBILE MENU
+   ===================================================== */
+var header = document.getElementById("top");
+var burger = document.getElementById("burger");
+var links = document.getElementById("links");
+
+window.addEventListener("scroll", function () {
+  header.classList.toggle("scrolled", window.scrollY > 20);
+}, { passive: true });
+
+function closeMenu() {
+  links.classList.remove("open");
+  burger.setAttribute("aria-expanded", "false");
 }
 
-// ---------- Light / dark theme (icon button, choice is remembered) ----------
-const themeBtn = document.getElementById("theme-toggle");
-
-function readTheme() {
-    try { return localStorage.getItem("theme"); } catch (e) { return null; }
-}
-function writeTheme(value) {
-    try { localStorage.setItem("theme", value); } catch (e) {}
-}
-function applyTheme(light) {
-    document.body.classList.toggle("light-mode", light);
-    if (themeBtn) {
-        themeBtn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
-    }
-}
-
-applyTheme(readTheme() === "light");
-
-if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-        const light = !document.body.classList.contains("light-mode");
-        applyTheme(light);
-        writeTheme(light ? "light" : "dark");
-    });
-}
-
-// ---------- Contact form ----------
-// To receive messages, create a free form at formspree.io and paste its URL below,
-// for example: "https://formspree.io/f/yourFormId"
-const FORM_ENDPOINT = "";
-
-const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("formStatus");
-
-if (contactForm && formStatus) {
-    contactForm.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        if (!FORM_ENDPOINT) {
-            formStatus.textContent = "This form isn't connected yet. Please contact me by email instead.";
-            return;
-        }
-
-        try {
-            const response = await fetch(FORM_ENDPOINT, {
-                method: "POST",
-                body: new FormData(contactForm),
-                headers: { Accept: "application/json" }
-            });
-            if (!response.ok) throw new Error("Request failed");
-            formStatus.textContent = "Thanks, your message was sent.";
-            contactForm.reset();
-        } catch (error) {
-            formStatus.textContent = "Something went wrong. Please try again.";
-        }
-    });
-}
-
-// ---------- Gallery spotlight ----------
-document.querySelectorAll(".tile").forEach(function (tile) {
-    tile.addEventListener("mousemove", function (e) {
-        const r = tile.getBoundingClientRect();
-        tile.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        tile.style.setProperty("--my", (e.clientY - r.top) + "px");
-    });
+burger.addEventListener("click", function () {
+  var isOpen = links.classList.toggle("open");
+  burger.setAttribute("aria-expanded", isOpen);
 });
 
-// ---------- Skills fade in and out while scrolling ----------
-const skillItems = document.querySelectorAll(".skill");
+links.querySelectorAll("a").forEach(function (link) {
+  link.addEventListener("click", closeMenu);
+});
 
-if ("IntersectionObserver" in window && skillItems.length) {
-    const fadeObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            entry.target.classList.toggle("in-view", entry.isIntersecting);
-        });
-    }, { threshold: 0.2, rootMargin: "-8% 0px -8% 0px" });
+window.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeMenu();
+  }
+});
 
-    skillItems.forEach(function (item) {
-        item.classList.add("fade");
-        fadeObserver.observe(item);
-    });
+
+/* =====================================================
+   3. SMOOTH "BACK TO TOP"
+   Glides to the top with easing. The further down you are,
+   the longer the glide (between 0.6 and 1.6 seconds).
+   ===================================================== */
+function easeInOut(t) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 }
 
-// ---------- Profile photo: tap + automatic demo on touch devices ----------
-const avatar = document.querySelector(".avatar");
+function glideToTop() {
+  var startY = window.scrollY;
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (avatar && window.matchMedia("(hover: none)").matches && "IntersectionObserver" in window) {
-    avatar.addEventListener("click", function () {
-        avatar.classList.toggle("active");
-    });
+  if (reduceMotion || startY === 0) {
+    window.scrollTo(0, 0);
+    return;
+  }
 
-    let avatarTimer;
-    const avatarObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            clearInterval(avatarTimer);
-            if (entry.isIntersecting) {
-                const pulse = function () {
-                    avatar.classList.add("active");
-                    setTimeout(function () { avatar.classList.remove("active"); }, 2600);
-                };
-                pulse();
-                avatarTimer = setInterval(pulse, 6000);
-            } else {
-                avatar.classList.remove("active");
-            }
-        });
-    }, { threshold: 0.5 });
-    avatarObserver.observe(avatar);
+  var duration = Math.min(1600, 600 + startY * 0.25);
+  var startTime = null;
+
+  document.documentElement.style.scrollBehavior = "auto";
+
+  function step(now) {
+    if (startTime === null) {
+      startTime = now;
+    }
+    var progress = Math.min((now - startTime) / duration, 1);
+    window.scrollTo(0, startY * (1 - easeInOut(progress)));
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      document.documentElement.style.scrollBehavior = "";
+    }
+  }
+
+  requestAnimationFrame(step);
 }
+
+document.querySelectorAll('a[href="#home"]').forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeMenu();
+    glideToTop();
+  });
+});
+
+
+/* =====================================================
+   4. SERVICE CARDS (click to show or hide details)
+   ===================================================== */
+document.querySelectorAll(".svc").forEach(function (card) {
+  card.addEventListener("click", function () {
+    var isOpen = card.getAttribute("aria-expanded") === "true";
+    card.setAttribute("aria-expanded", !isOpen);
+    card.querySelector(".tog").textContent = isOpen ? "Show details" : "Hide details";
+  });
+});
+
+
+/* =====================================================
+   5. SCROLL FADE IN AND OUT
+   ===================================================== */
+var fadeItems = document.querySelectorAll(".fade");
+
+if ("IntersectionObserver" in window) {
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("on");
+        entry.target.classList.remove("up");
+      } else {
+        entry.target.classList.remove("on");
+        entry.target.classList.toggle("up", entry.boundingClientRect.top < 0);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  fadeItems.forEach(function (item, index) {
+    item.style.transitionDelay = (index % 3) * 90 + "ms";
+    observer.observe(item);
+  });
+
+} else {
+  fadeItems.forEach(function (item) {
+    item.classList.add("on");
+  });
+}
+
+
+/* =====================================================
+   6. HERO SLIDER
+   Slides every 5 seconds. Pauses when the mouse is over it.
+   Arrows, dots and swipe also work.
+   ===================================================== */
+var slidesBox = document.getElementById("slides");
+var slideItems = slidesBox.querySelectorAll(".slide");
+var dotsBox = document.getElementById("dots");
+var current = 0;
+var autoplay;
+
+slideItems.forEach(function (slide, i) {
+  var dot = document.createElement("button");
+  dot.className = "dot";
+  dot.setAttribute("aria-label", "Go to message " + (i + 1));
+  dot.addEventListener("click", function () {
+    goTo(i);
+    restartAutoplay();
+  });
+  dotsBox.appendChild(dot);
+});
+
+var dots = dotsBox.querySelectorAll(".dot");
+
+function goTo(index) {
+  current = (index + slideItems.length) % slideItems.length;
+  slidesBox.style.transform = "translateX(-" + current * 100 + "%)";
+
+  slideItems.forEach(function (slide, i) {
+    slide.classList.toggle("active", i === current);
+    slide.setAttribute("aria-hidden", i !== current);
+  });
+  dots.forEach(function (dot, i) {
+    dot.classList.toggle("active", i === current);
+  });
+}
+
+function startAutoplay() {
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    autoplay = setInterval(function () {
+      goTo(current + 1);
+    }, 5000);
+  }
+}
+
+function restartAutoplay() {
+  clearInterval(autoplay);
+  startAutoplay();
+}
+
+document.getElementById("prev").addEventListener("click", function () {
+  goTo(current - 1);
+  restartAutoplay();
+});
+
+document.getElementById("next").addEventListener("click", function () {
+  goTo(current + 1);
+  restartAutoplay();
+});
+
+var sliderEl = document.getElementById("slider");
+sliderEl.addEventListener("mouseenter", function () { clearInterval(autoplay); });
+sliderEl.addEventListener("mouseleave", restartAutoplay);
+sliderEl.addEventListener("focusin", function () { clearInterval(autoplay); });
+sliderEl.addEventListener("focusout", restartAutoplay);
+
+// Swipe on phones
+var touchStartX = 0;
+sliderEl.addEventListener("touchstart", function (e) {
+  touchStartX = e.changedTouches[0].clientX;
+}, { passive: true });
+
+sliderEl.addEventListener("touchend", function (e) {
+  var distance = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(distance) > 50) {
+    goTo(distance < 0 ? current + 1 : current - 1);
+    restartAutoplay();
+  }
+}, { passive: true });
+
+goTo(0);
+startAutoplay();
+
+
+/* =====================================================
+   7. CONTACT FORM
+   Opens the visitor's email app with the message filled in.
+   ===================================================== */
+document.getElementById("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  var form = e.target;
+  var message = document.getElementById("fmsg");
+
+  // Spam trap: real visitors never fill this hidden field
+  if (form.website.value) {
+    return;
+  }
+
+  var emailOk = /^\S+@\S+\.\S+$/.test(form.email.value);
+  if (!form.name.value.trim() || !emailOk || !form.msg.value.trim()) {
+    message.textContent = "Please enter your name, a valid email and your project details.";
+    return;
+  }
+
+  var subject = "Website enquiry from " + form.name.value;
+  var body =
+    "Name: " + form.name.value + "\n" +
+    "Email: " + form.email.value + "\n" +
+    "Service: " + form.service.value + "\n\n" +
+    form.msg.value;
+
+  window.location.href =
+    "mailto:" + CONFIG.email +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+
+  message.textContent = "Thanks, " + form.name.value.split(" ")[0] + ". Your email app should open with your request ready to send.";
+});
