@@ -13,6 +13,9 @@
   <meta property="og:description" content="Responsive, beautiful and functional websites that help businesses grow online.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#070b16">
+  <link rel="canonical" href="https://aj-devinc.netlify.app/">
+
+  <!-- Google Search Console: paste your verification tag here -->
 
   <script type="application/ld+json">
   {
@@ -29,7 +32,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Your CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -45,12 +47,11 @@
       </button>
 
       <nav class="links" id="links" aria-label="Main">
-        <a href="#about">About</a>
+        <a href="#home" class="current">Home</a>
         <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#why">Why us</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="ceo.html">CEO</a>
+        <a href="get-started.html" class="btn btn-gold">Get Started</a>
       </nav>
     </div>
   </header>
@@ -66,47 +67,62 @@
           <p>A.J-Dev Inc. designs and develops fast, responsive and beautifully crafted websites for businesses, entrepreneurs and individuals who are ready to be seen online.</p>
 
           <div class="cta">
-            <a href="#work" class="btn btn-gold">View Our Work</a>
-            <a href="#contact" class="btn btn-line">Get a Free Quote</a>
+            <a href="ceo.html#portfolio" class="btn btn-gold">View Our Work</a>
+            <a href="get-started.html" class="btn btn-line">Get a Free Quote</a>
           </div>
 
           <p class="motto">Why wait for the future? It’s right in front of you.</p>
         </div>
 
-        <!-- Hero visual: browser window that "builds" a website -->
-        <div class="win" aria-hidden="true">
-          <div class="bar">
-            <i></i><i></i><i></i>
-            <b>aj-devinc.netlify.app</b>
+        <!-- Hero visual: sliding message cards -->
+        <div class="slider" id="slider" aria-roledescription="carousel" aria-label="Why choose A.J-Dev">
+
+          <div class="slider-view">
+            <div class="slides" id="slides">
+
+              <article class="slide">
+                <div class="slide-ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                <h3>Work with a site you can trust</h3>
+                <p>Reliable, secure and built with care, so your customers feel confident the moment they land on your page.</p>
+                <a href="get-started.html" class="slide-link">Get a free quote →</a>
+              </article>
+
+              <article class="slide">
+                <div class="slide-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></svg></div>
+                <h3>Your priority is our priority</h3>
+                <p>We start by listening. Your goals shape every design decision and every line of code we write.</p>
+                <a href="how-it-works.html" class="slide-link">How we work →</a>
+              </article>
+
+              <article class="slide">
+                <div class="slide-ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+                <h3>Looks great on every screen</h3>
+                <p>Phones, tablets and desktops. Your website works beautifully wherever your customers are.</p>
+                <a href="#services" class="slide-link">See our services →</a>
+              </article>
+
+              <article class="slide">
+                <div class="slide-ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+                <h3>Why wait for the future?</h3>
+                <p>It’s right in front of you. Tell us about your idea and let’s build it together.</p>
+                <a href="get-started.html" class="slide-link">Start your project →</a>
+              </article>
+
+            </div>
           </div>
 
-          <div class="panes">
-            <div class="code">
-              <div style="animation-delay:.4s"><span class="k">&lt;section</span> <span class="s">class="hero"</span><span class="k">&gt;</span></div>
-              <div style="animation-delay:.9s">&nbsp;&nbsp;<span class="k">&lt;h1&gt;</span>Your brand<span class="k">&lt;/h1&gt;</span></div>
-              <div style="animation-delay:1.4s">&nbsp;&nbsp;<span class="k">&lt;p&gt;</span>Made to convert<span class="k">&lt;/p&gt;</span></div>
-              <div style="animation-delay:1.9s">&nbsp;&nbsp;<span class="k">&lt;div</span> <span class="s">class="grid"</span><span class="k">&gt;</span></div>
-              <div style="animation-delay:2.4s">&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">&lt;card/&gt;&lt;card/&gt;</span></div>
-              <div style="animation-delay:2.9s">&nbsp;&nbsp;<span class="k">&lt;/div&gt;</span></div>
-              <div style="animation-delay:3.4s">&nbsp;&nbsp;<span class="k">&lt;button&gt;</span>Start<span class="k">&lt;/button&gt;</span></div>
-              <div style="animation-delay:3.9s"><span class="k">&lt;/section&gt;</span></div>
-            </div>
-
-            <div class="prev">
-              <div class="p1" style="animation-delay:.9s"></div>
-              <div class="p2" style="animation-delay:1.4s"></div>
-              <div class="p3" style="animation-delay:1.9s"></div>
-              <div class="p4" style="animation-delay:1.9s"></div>
-              <div class="p5" style="animation-delay:2.9s"><span></span><span></span><span></span></div>
-              <div class="p6" style="animation-delay:3.4s"></div>
-            </div>
+          <div class="slider-nav">
+            <button class="arrow" id="prev" aria-label="Previous message">‹</button>
+            <div class="dots" id="dots"></div>
+            <button class="arrow" id="next" aria-label="Next message">›</button>
           </div>
+
         </div>
 
       </div>
     </section>
 
-        <!-- ================= SCROLLING STRIP ================= -->
+    <!-- ================= SCROLLING STRIP ================= -->
     <div class="strip" aria-hidden="true">
       <div class="strip-track">
         <span>Responsive design</span>
@@ -248,20 +264,18 @@
       </div>
     </section>
 
-    <!-- ================= PORTFOLIO ================= -->
+    <!-- ================= SELECTED WORK ================= -->
     <section class="alt" id="work">
       <div class="wrap">
 
         <div class="head fade">
           <h2>Selected work</h2>
-          <p class="lead">A look at the kind of sites we build.</p>
+          <p class="lead">A look at what we’ve built so far.</p>
         </div>
 
         <div class="grid">
 
-                  <div class="grid">
-
-                  <!-- Your own website as the first project -->
+          <!-- Project 1: this website. Put your screenshot at images/project1.jpg -->
           <a class="proj fade" href="https://aj-devinc.netlify.app" target="_blank" rel="noopener">
             <img class="photo" src="images/My website.png" alt="Screenshot of the A.J-Dev Inc. website" loading="lazy">
             <div class="info">
@@ -271,18 +285,17 @@
             </div>
           </a>
 
-          <!-- Honest placeholder for what comes next -->
-          <div class="rev fade">
-            <h3>Your project could be next</h3>
-            <p>We’re taking on our first clients and giving each one extra attention. Tell us about your idea and we’ll build it.</p>
-            <p style="margin-top:16px"><a href="#contact" style="color:var(--gold);font-weight:600">Start a project →</a></p>
-          </div>
+          <!-- Project 2: the CEO's portfolio -->
+          <a class="proj fade" href="ceo.html#portfolio">
+            <div class="shot s2"><i class="t"></i><i class="h"></i><i class="l"></i><div class="r"><i></i><i></i><i></i></div></div>
+            <div class="info">
+              <h3>John Ayi’s portfolio</h3>
+              <p>Current work and projects from our founder and CEO.</p>
+              <span class="visit">See the portfolio <span>→</span></span>
+            </div>
+          </a>
 
         </div>
-
-        </div>
-
-        
       </div>
     </section>
 
@@ -329,7 +342,7 @@
           <!-- Replace these with real reviews when you have them -->
           <div class="rev fade">
             <h3>None to report yet</h3>
-            <p></p>
+           
           </div>
           <div class="rev fade">
             <h3>Work with us first</h3>
@@ -419,12 +432,13 @@
         </div>
 
         <div>
-          <h4>Navigate</h4>
+          <h4>Pages</h4>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How it works</a></li>
+            <li><a href="ceo.html">CEO</a></li>
+            <li><a href="ceo.html#portfolio">Portfolio</a></li>
+            <li><a href="get-started.html">Get Started</a></li>
           </ul>
         </div>
 
@@ -452,14 +466,12 @@
 
       <div class="copy">
         <span>© <span id="yr">2026</span> A.J-Dev Inc. All rights reserved.</span>
-        <a href="#top">Back to top</a>
+        <a href="#home">Back to top</a>
       </div>
     </div>
   </footer>
 
-  <!-- Your JavaScript file -->
   <script src="script.js"></script>
 </body>
 
 </html>
-

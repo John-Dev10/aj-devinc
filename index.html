@@ -1,474 +1,364 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+   <button id="menu-toggle" aria-label="Open navigation menu">☰ Menu</button>
+
+<nav id="nav-menu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+   <button onclick="toggleTheme()">Switch Theme</button>
+
+   <main>
+    <section id="home">
+    <h1>Hi! I'm <span>John</span></h1>
+    <img src="images/my-picture.jpg.jpeg" alt="A picture of me" class="profile-pic">
+    <div class="hello-button" onclick="sayHello()">Say Hello</div>
+    <p class="intro">I'm a beginner web developer passionate about building websites and learning new technologies.
+</p>    
+<div class="message-box">
+    <p id="message">I'm a beginner web developer.</p>
+    <button id="updateButton" onclick="changeText()">Update Message</button>
+</div>
+<input type="text" id="visitorName" placeholder="Enter your name" oninput="greetVisitor()">
+<p id="greeting"></p>
+<a href="#projects" class="hero-button">View My Projects</a>
+</section>
+
+   </section>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p class="about-text">I'm a beginner web developer passionate about technology and creativity.
+        I'm currently learning HTML and CSS while working on different projects
+        to improve my skills.</p>
+
+    </section>
+
+    <section id="skills">
+        <h2>My Skills</h2>
+
+        <div class="skills-container">
+            <div class="skill">
+                <h3>HTML</h3>
+                <p>Building the structure of websites</p>
+
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <p>Styling and designing websites</p>
+
+            </div>
+
+            <div class="skill">
+                <h3>Responsive Design</h3>
+                <p>Making websites work well on different screen sizes</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-filters">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('html')">HTML</button>
+    <button onclick="filterProjects('css')">CSS</button>
+</div>
+        <div class="projects-container">
+
+             <div class="project-card" data-category="html">
+            <h3>My first website</h3>
+            <p>A website I built while learning HTML and web development</p>
+            <a href="project1.html" class="project-button">View Project</a>
+        </div>
+
+        <div class="project-card" data-category="css">
+            <h3>Life of a Koala</h3>
+            <p>My personal portfolio website built with HTML and CSS</p>
+            <a href="Web class/index.html" class="project-button">View Project</a>
+        </div>
+
+        <div class="project-card" data-category="html">
+            <h3>Architecture</h3>
+            <p>A project I designed while learning display: flex</p>
+             <a href="Web class/work.html" class="project-button">View project</a>
+        </div>
+
+
+        </div>
+    
+
+    <section id="contact">
+        <h2>Contact me</h2>
+        <p>You can contact me through the form below</p>
+
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text"required ="name" name="name" placeholder="Your full name">
+            
+            
+
+            <label for="email">Email</label>
+            <input type="email" required ="email" name="email" placeholder="Type in your email address">
+
+        
+            <label for="message">Message</label>
+            <textarea name="message"required ="message" placeholder="Type in a message"></textarea>
+
+            <button type="submit">Send Message</button>
+
+
+        </form>
+
+    </section>
+   </main>
+     
+   <footer>
+    <p>&copy; 2026 John Ayi. All rights reserved</p>
+   </footer>
+
+   <script src="script.js"></script>
+   
+        
+
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <!-- SEO -->
-  <title>A.J-Dev Inc. | Web Development Agency for Businesses & Entrepreneurs</title>
-  <meta name="description" content="A.J-Dev Inc. designs and builds responsive, fast and visually striking websites for businesses, entrepreneurs and individuals. Get a free quote today.">
-  <meta name="keywords" content="web development agency, website design, e-commerce website, landing page, portfolio website, website redesign, Lagos, Nigeria">
-  <meta property="og:title" content="A.J-Dev Inc. | Why wait for the future?">
-  <meta property="og:description" content="Responsive, beautiful and functional websites that help businesses grow online.">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#070b16">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "A.J-Dev Inc.",
-    "description": "Web development agency building responsive websites for businesses, entrepreneurs and individuals.",
-    "slogan": "Why wait for the future? It’s right in front of you."
-  }
-  </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Your CSS file -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.J-Dev | Web Developer</title>
+    <meta name="description" content="Portfolio of John Ayi, a web developer in training.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Sora:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- ================= HEADER / NAVIGATION ================= -->
-  <header id="top">
-    <div class="wrap nav">
-      <a href="#home" class="logo" aria-label="A.J-Dev home">A.J<span>-Dev</span></a>
+    <header class="site-header">
+        <a class="logo" href="#home" aria-label="A.J-Dev home"><span class="logo-a">A.J</span><span
+                class="logo-b">-Dev</span></a>
+        <nav id="nav-menu">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#assignments">Assignments</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cta">Hire me</a>
+            <button id="theme-toggle" class="theme-btn" type="button" aria-label="Switch to light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                        d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                </svg>
+            </button>
+        </nav>
+    </header>
 
-      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links">
-        <i></i><i></i><i></i>
-      </button>
+    <main>
+        <section id="home" class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <p class="badge"><span class="pulse"></span>Available for work</p>
+                    <h1>I build clean, responsive websites.</h1>
+                    <p class="lead">Hi, I'm John Ayi, a web developer in training. I turn ideas into clean, responsive
+                        pages with HTML, CSS and JavaScript.</p>
+                    <div class="actions">
+                        <a href="#contact" class="btn btn-primary">Hire me</a>
+                        <a href="#assignments" class="btn btn-ghost">See my work</a>
+                    </div>
+                </div>
+                <div class="avatar">
+                    <div class="avatar-inner">
+                        <img src="images/Classic Red Sweater Portrait.png" alt="Portrait of John Ayi">
+                        <span class="scan"></span>
+                        <span class="c c1"></span><span class="c c2"></span><span class="c c3"></span><span
+                            class="c c4"></span>
+                        <span class="chip">A.J-Dev</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <nav class="links" id="links" aria-label="Main">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#why">Why us</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact" class="btn btn-gold">Get a Free Quote</a>
-      </nav>
-    </div>
-  </header>
+        <section id="about">
+            <div class="wrap narrow">
+                <h2>About me</h2>
+                <p class="about-lead">I'm passionate about technology and creativity.</p>
 
-  <main>
-
-    <!-- ================= HERO ================= -->
-    <section class="hero" id="home">
-      <div class="wrap">
-
-        <div>
-          <h1>We Build Digital Experiences That Move Businesses Forward.</h1>
-          <p>A.J-Dev Inc. designs and develops fast, responsive and beautifully crafted websites for businesses, entrepreneurs and individuals who are ready to be seen online.</p>
-
-          <div class="cta">
-            <a href="#work" class="btn btn-gold">View Our Work</a>
-            <a href="#contact" class="btn btn-line">Get a Free Quote</a>
-          </div>
-
-          <p class="motto">Why wait for the future? It’s right in front of you.</p>
-        </div>
-
-        <!-- Hero visual: browser window that "builds" a website -->
-        <div class="win" aria-hidden="true">
-          <div class="bar">
-            <i></i><i></i><i></i>
-            <b>yourbusiness.com</b>
-          </div>
-
-          <div class="panes">
-            <div class="code">
-              <div style="animation-delay:.4s"><span class="k">&lt;section</span> <span class="s">class="hero"</span><span class="k">&gt;</span></div>
-              <div style="animation-delay:.9s">&nbsp;&nbsp;<span class="k">&lt;h1&gt;</span>Your brand<span class="k">&lt;/h1&gt;</span></div>
-              <div style="animation-delay:1.4s">&nbsp;&nbsp;<span class="k">&lt;p&gt;</span>Made to convert<span class="k">&lt;/p&gt;</span></div>
-              <div style="animation-delay:1.9s">&nbsp;&nbsp;<span class="k">&lt;div</span> <span class="s">class="grid"</span><span class="k">&gt;</span></div>
-              <div style="animation-delay:2.4s">&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">&lt;card/&gt;&lt;card/&gt;</span></div>
-              <div style="animation-delay:2.9s">&nbsp;&nbsp;<span class="k">&lt;/div&gt;</span></div>
-              <div style="animation-delay:3.4s">&nbsp;&nbsp;<span class="k">&lt;button&gt;</span>Start<span class="k">&lt;/button&gt;</span></div>
-              <div style="animation-delay:3.9s"><span class="k">&lt;/section&gt;</span></div>
+                <div class="about-points">
+                    <div class="point">
+                        <h3>Learning</h3>
+                        <p>Building my skills in HTML, CSS and JavaScript through hands-on assignments.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Building</h3>
+                        <p>Writing clear code and making pages that work well on any screen size.</p>
+                    </div>
+                    <div class="point">
+                        <h3>Growing</h3>
+                        <p>Always eager to learn and grow in the evolving world of tech.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="prev">
-              <div class="p1" style="animation-delay:.9s"></div>
-              <div class="p2" style="animation-delay:1.4s"></div>
-              <div class="p3" style="animation-delay:1.9s"></div>
-              <div class="p4" style="animation-delay:1.9s"></div>
-              <div class="p5" style="animation-delay:2.9s"><span></span><span></span><span></span></div>
-              <div class="p6" style="animation-delay:3.4s"></div>
+            <div class="gallery">
+                <figure class="tile tile-large">
+                    <img src="images/First.website.png" alt="Screenshot of my first website">
+                    <figcaption>My first website</figcaption>
+                </figure>
+
+                <figure class="tile tile-code">
+                    <div class="dots"><i></i><i></i><i></i></div>
+                    <pre><code><span class="s">.hero</span> {
+  <span class="p">display</span>: <span class="v">flex</span>;
+  <span class="p">gap</span>: <span class="v">2rem</span>;
+}</code></pre>
+                    <figcaption>Writing CSS</figcaption>
+                </figure>
+
+                <figure class="tile">
+                    <img src="images/modern-tech-office-stockcake.jpg" alt="My workspace">
+                    <figcaption>Where I build</figcaption>
+                </figure>
             </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-        <!-- ================= SCROLLING STRIP ================= -->
-    <div class="strip" aria-hidden="true">
-      <div class="strip-track">
-        <span>Responsive design</span>
-        <span>Fast loading</span>
-        <span>SEO-ready</span>
-        <span>Mobile-first</span>
-        <span>Clean code</span>
-        <span>WhatsApp integration</span>
-        <!-- Same list again so the loop is seamless -->
-        <span>Responsive design</span>
-        <span>Fast loading</span>
-        <span>SEO-ready</span>
-        <span>Mobile-first</span>
-        <span>Clean code</span>
-        <span>WhatsApp integration</span>
-      </div>
-    </div>
-
-    <!-- ================= ABOUT ================= -->
-    <section class="alt" id="about">
-      <div class="wrap about">
-
-        <div class="fade">
-          <h2>Websites built like your business depends on them.</h2>
-          <p class="lead">A.J-Dev Inc. is a web development agency that turns ideas into polished, working websites. We work with growing businesses, entrepreneurs and individuals who want an online presence that looks professional and earns trust.</p>
-          <p>Every project starts with listening: who your customers are, what you want them to do, and what makes you different. We then design and code each page by hand, so the site loads fast, works on every screen and is easy for you to manage.</p>
-        </div>
-
-        <div class="vals fade">
-          <div class="val">
-            <h3>Quality first</h3>
-            <p>Clean code, careful testing and attention to every detail before launch.</p>
-          </div>
-          <div class="val">
-            <h3>Creative thinking</h3>
-            <p>Designs shaped around your brand, never recycled from a template.</p>
-          </div>
-          <div class="val">
-            <h3>Built to grow your business</h3>
-            <p>Sites that help customers find you, trust you and get in touch.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SERVICES ================= -->
-    <section id="services">
-      <div class="wrap">
-
-        <div class="head fade">
-          <h2>What we build for you</h2>
-          <p class="lead">Select a service to see what’s included.</p>
-        </div>
-
-        <div class="grid">
-
-          <!-- Service 1 -->
-          <button class="svc fade" aria-expanded="false">
-            <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
-            <h3>Business Website Development</h3>
-            <p>A professional home for your company online.</p>
-            <div class="more"><div>
-              <ul>
-                <li>Custom multi-page design</li>
-                <li>Mobile-first, fast loading</li>
-                <li>Contact forms and WhatsApp links</li>
-                <li>Basic SEO setup</li>
-              </ul>
-            </div></div>
-            <span class="tog">Show details</span>
-          </button>
-
-          <!-- Service 2 -->
-          <button class="svc fade" aria-expanded="false">
-            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l3 12h10l3-8H6"/></svg></div>
-            <h3>E-commerce Website Development</h3>
-            <p>Online stores that make buying easy.</p>
-            <div class="more"><div>
-              <ul>
-                <li>Product catalogue and cart</li>
-                <li>Secure online payments</li>
-                <li>Order and stock management</li>
-                <li>Built for phones first</li>
-              </ul>
-            </div></div>
-            <span class="tog">Show details</span>
-          </button>
-
-          <!-- Service 3 -->
-          <button class="svc fade" aria-expanded="false">
-            <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2l3 7 7 1-5 5 1 7-6-4-6 4 1-7-5-5 7-1z"/></svg></div>
-            <h3>Landing Page Design</h3>
-            <p>One focused page built to turn visitors into customers.</p>
-            <div class="more"><div>
-              <ul>
-                <li>Clear message and strong call to action</li>
-                <li>Lead capture forms</li>
-                <li>Quick turnaround</li>
-                <li>Ideal for campaigns and launches</li>
-              </ul>
-            </div></div>
-            <span class="tog">Show details</span>
-          </button>
-
-          <!-- Service 4 -->
-          <button class="svc fade" aria-expanded="false">
-            <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg></div>
-            <h3>Portfolio Website Development</h3>
-            <p>Show your work and your personality, beautifully.</p>
-            <div class="more"><div>
-              <ul>
-                <li>Project galleries and case studies</li>
-                <li>Personal branding and style</li>
-                <li>Great for creatives and professionals</li>
-                <li>Easy to update</li>
-              </ul>
-            </div></div>
-            <span class="tog">Show details</span>
-          </button>
-
-          <!-- Service 5 -->
-          <button class="svc fade" aria-expanded="false">
-            <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></div>
-            <h3>Website Redesign and Maintenance</h3>
-            <p>Refresh an outdated site and keep it running smoothly.</p>
-            <div class="more"><div>
-              <ul>
-                <li>Modern redesign of your current site</li>
-                <li>Speed and security improvements</li>
-                <li>Content updates and bug fixes</li>
-                <li>Ongoing support plans</li>
-              </ul>
-            </div></div>
-            <span class="tog">Show details</span>
-          </button>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PORTFOLIO ================= -->
-    <section class="alt" id="work">
-      <div class="wrap">
-
-        <div class="head fade">
-          <h2>Selected work</h2>
-          <p class="lead">A look at the kind of sites we build.</p>
-        </div>
-
-        <div class="grid">
-
-          <!-- Project 1: replace # with the live website link -->
-          <a class="proj fade" href="#" target="_blank" rel="noopener">
-            <div class="shot s1"><i class="t"></i><i class="h"></i><i class="l"></i><div class="r"><i></i><i></i><i></i></div></div>
-            <div class="info">
-              <h3>Sample: Clinic Website</h3>
-              <p>A trusted, easy-to-navigate site with online appointment requests.</p>
-              <span class="visit">Visit live site <span>→</span></span>
             </div>
-          </a>
+        </section>
 
-          <!-- Project 2 -->
-          <a class="proj fade" href="#" target="_blank" rel="noopener">
-            <div class="shot s2"><i class="t"></i><i class="h"></i><i class="l"></i><div class="r"><i></i><i></i><i></i></div></div>
-            <div class="info">
-              <h3>Sample: Fashion Store</h3>
-              <p>A mobile-first online shop with product pages and a simple checkout.</p>
-              <span class="visit">Visit live site <span>→</span></span>
+        <section id="skills">
+            <div class="wrap">
+                <h2>Skills</h2>
+                <div class="skills">
+                    <div class="skill">
+                        <h3>HTML</h3>
+                        <p>Structuring content with semantic markup.</p>
+                        <div class="skill-shot"><img src="images/html.png" alt="Example of my HTML work"
+                                onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="skill">
+                        <h3>CSS</h3>
+                        <p>Styling and laying out websites with Flexbox.</p>
+                        <div class="skill-shot"><img src="images/css.png" alt="Example of my CSS work"
+                                onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="skill">
+                        <h3>Responsive design</h3>
+                        <p>Making pages work on phones, tablets and desktops.</p>
+                        <div class="skill-shot"><img src="images/Responsive.png"
+                                alt="Example of my responsive design work" onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="skill">
+                        <h3>JavaScript</h3>
+                        <p>Adding interactivity and handling user input.</p>
+                        <div class="skill-shot"><img src="images/JavaScript-shot.png"
+                                alt="Example of my JavaScript work" onerror="this.style.display='none'"></div>
+                    </div>
+                </div>
             </div>
-          </a>
+        </section>
 
-          <!-- Project 3 -->
-          <a class="proj fade" href="#" target="_blank" rel="noopener">
-            <div class="shot s3"><i class="t"></i><i class="h"></i><i class="l"></i><div class="r"><i></i><i></i><i></i></div></div>
-            <div class="info">
-              <h3>Sample: Creative Portfolio</h3>
-              <p>A minimal gallery that lets a photographer’s work lead.</p>
-              <span class="visit">Visit live site <span>→</span></span>
+        <section id="assignments">
+            <div class="wrap">
+                <h2>Training assignments</h2>
+                <p class="sub">Work completed during my web development training. Real projects will be added here as I
+                    build them.</p>
+                <ul class="assign">
+                    <li>
+                        <div>
+                            <h3>My First Webpage</h3>
+                            <p>Structuring a page with HTML and connecting a stylesheet. None-responsive</p>
+                            <div class="tags"><span>HTML</span><span>CSS</span></div>
+                        </div>
+                        <a class="view" href="Web class/new-work.html">View assignment</a>
+                    </li>
+                    <li>
+                        <div>
+                            <h3>interior-design Project</h3>
+                            <p>A themed multi-section page built with HTML and CSS.</p>
+                            <div class="tags"><span>HTML</span><span>CSS</span></div>
+                        </div>
+                        <a class="view" href="Web class/another-work.html">View assignment</a>
+                    </li>
+                    <!-- <li>
+                    <div>
+                        <h3>Architecture</h3>
+                        <p>A page layout built while learning display: flex.</p>
+                        <div class="tags"><span>HTML</span><span>CSS</span><span>Flexbox</span></div>
+                    </div>
+                    <a class="view" href="Web%20class/work.html">View assignment</a>
+                </li> -->
+                </ul>
             </div>
-          </a>
+        </section>
 
+        <a href="#projects">Projects</a>
+
+        <section id="projects">
+            <div class="wrap">
+                <h2>Projects</h2>
+                <p class="sub">Real-world websites and apps I build beyond my training.</p>
+                <div class="projects">
+                    <p class="empty-note">My first projects are in progress. Check back soon, or get in touch if you'd
+                        like to work together.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap">
+                <h2>Let's work together</h2>
+                <p class="sub">Have a project or an opportunity in mind? Send me a message or reach me directly.</p>
+                <div class="contact-links">
+                    <a class="view" href="ayijohn28@gmail.com">ayijohn28@gmail.com</a>
+                    <a class="view" href="https://github.com/your-username">GitHub</a>
+                    <a class="view" href="https://www.linkedin.com/in/your-username">LinkedIn</a>
+                </div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can I help?" required></textarea>
+
+                <button type="submit" class="btn btn-primary">Send message</button>
+                <p id="formStatus" role="status"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <p>&copy; 2026 <strong class="brand">A.J<span>-Dev</span></strong>. All rights reserved.</p>
         </div>
+    </footer>
 
-        <p class="note fade">These are sample concepts. Replace each with a real client project and its live link as you complete them.</p>
-      </div>
-    </section>
-
-    <!-- ================= WHY CHOOSE US ================= -->
-    <section id="why">
-      <div class="wrap">
-
-        <div class="head fade">
-          <h2>Why businesses choose A.J-Dev</h2>
-        </div>
-
-        <div class="why">
-          <div class="fade">
-            <h3>Responsive on every screen</h3>
-            <p>Your site looks and works perfectly on phones, tablets and desktops.</p>
-          </div>
-          <div class="fade">
-            <h3>Modern development</h3>
-            <p>Clean, fast and secure code built with current web standards.</p>
-          </div>
-          <div class="fade">
-            <h3>Attention to detail</h3>
-            <p>Spacing, speed, accessibility and copy are checked before anything goes live.</p>
-          </div>
-          <div class="fade">
-            <h3>Reliable support</h3>
-            <p>We answer quickly and stay available after launch.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= TESTIMONIALS ================= -->
-    <section class="alt" id="reviews">
-      <div class="wrap">
-
-        <div class="head fade">
-          <h2>What clients say</h2>
-          <p class="lead">We only publish real feedback from real clients.</p>
-        </div>
-
-        <div class="grid">
-          <!-- Replace these with real reviews when you have them -->
-          <div class="rev fade">
-            <h3>None to report yet</h3>
-            <p></p>
-          </div>
-          <div class="rev fade">
-            <h3>Work with us first</h3>
-            <p>Our first clients get priority attention. Tell us about your project and we’ll get started.</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact">
-      <div class="wrap contact">
-
-        <div class="fade">
-          <h2>Let’s build your website.</h2>
-          <p class="lead">Tell us about your project and we’ll reply with a free quote, usually within one working day.</p>
-
-          <div class="ways">
-            <a class="way" id="mailLink" href="#">
-              <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-              <span id="mailText"></span>
-            </a>
-            <!-- Replace each # with your real social media link -->
-            <a class="way" href="#">
-              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 10v6M8 7v.01M12 16v-6M12 13a3 3 0 0 1 6 0v3"/></svg>
-              LinkedIn
-            </a>
-            <a class="way" href="#">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
-              Instagram
-            </a>
-            <a class="way" href="#">
-              <svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg>
-              X (Twitter)
-            </a>
-          </div>
-
-          <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        </div>
-
-        <form id="form" class="fade" novalidate>
-          <div class="two">
-            <label>Name
-              <input name="name" required autocomplete="name">
-            </label>
-            <label>Email
-              <input name="email" type="email" required autocomplete="email">
-            </label>
-          </div>
-
-          <label>What do you need?
-            <select name="service">
-              <option>Business website</option>
-              <option>E-commerce website</option>
-              <option>Landing page</option>
-              <option>Portfolio website</option>
-              <option>Redesign or maintenance</option>
-              <option>Not sure yet</option>
-            </select>
-          </label>
-
-          <label>Project details
-            <textarea name="msg" required placeholder="Tell us about your business, goals and timeline."></textarea>
-          </label>
-
-          <!-- Hidden spam trap: leave empty -->
-          <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-          <button class="btn btn-gold" type="submit">Send my request</button>
-          <p class="fmsg" id="fmsg" role="status"></p>
-        </form>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <div class="wrap">
-      <div class="fgrid">
-
-        <div>
-          <a href="#home" class="logo">A.J<span>-Dev</span></a>
-          <p class="foot-tag">Why wait for the future? It’s right in front of you.</p>
-        </div>
-
-        <div>
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Services</h4>
-          <ul>
-            <li>Business websites</li>
-            <li>E-commerce</li>
-            <li>Landing pages</li>
-            <li>Portfolios</li>
-            <li>Redesign and care</li>
-          </ul>
-        </div>
-
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li id="fMail"></li>
-            <li id="fPhone"></li>
-            <li>Akwa Ibom, Nigeria</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <div class="copy">
-        <span>© <span id="yr">2026</span> A.J-Dev Inc. All rights reserved.</span>
-        <a href="#top">Back to top</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Your JavaScript file -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
-
