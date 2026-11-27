@@ -815,7 +815,7 @@ header.scrolled::before {
 .photo {
   display: block;
   width: 100%;
-  height: auto;
+  height: 60%;
   border-radius: 16px;
   object-fit: cover;
 }
@@ -1802,4 +1802,185 @@ footer a:hover {
   letter-spacing: 0.3em;
   color: var(--muted);
   text-transform: uppercase;
+}
+
+/* =====================================================
+   IMAGE BAND AND FRAMED PHOTOS
+   ===================================================== */
+.banner {
+  padding: clamp(90px, 14vw, 170px) 0;
+  background:
+    linear-gradient(90deg, rgba(7, 11, 22, 0.94), rgba(7, 11, 22, 0.55)),
+    url("images/banner.jpg") center / cover no-repeat;
+  border-block: 1px solid var(--line);
+}
+
+.frame {
+  aspect-ratio: 4 / 3;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 198, 26, 0.25);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(255, 198, 26, 0.08);
+}
+
+@media (max-width: 600px) {
+  .banner .cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =====================================================
+   22. ABOUT CARDS WITH IMAGES (floating + hover effects)
+   ===================================================== */
+
+/* Intro text on top, three cards in a row underneath */
+.about {
+  grid-template-columns: 1fr;
+  gap: 56px;
+}
+
+.about > div:first-child p {
+  max-width: 70ch;
+}
+
+.vals {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 24px;
+}
+
+/* The card */
+.val {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  animation: drift 6s ease-in-out infinite;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s,
+    box-shadow 0.4s;
+}
+
+/* Each card floats at a different moment, so they never move in sync */
+.val:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.val:nth-child(3) {
+  animation-delay: -4s;
+}
+
+@keyframes drift {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -10px; }
+}
+
+/* Hover: pauses the float, lifts the card and adds a gold glow */
+.val:hover {
+  animation-play-state: paused;
+  transform: translateY(-10px);
+  border-color: rgba(255, 198, 26, 0.6);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(255, 198, 26, 0.16);
+}
+
+/* Gold line that appears across the top */
+.val::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 3;
+}
+
+.val:hover::before {
+  opacity: 1;
+}
+
+/* Light that sweeps diagonally across the card on hover */
+.val::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.09), transparent);
+  transform: skewX(-18deg);
+  transition: left 0.9s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.val:hover::after {
+  left: 130%;
+}
+
+/* The image */
+.val-img {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.val-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.val:hover .val-img img {
+  transform: scale(1.08);
+}
+
+/* Fades the bottom of the image into the card */
+.val-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(16, 26, 51, 0.95));
+}
+
+.val-body {
+  padding: 22px 24px 28px;
+}
+
+.val h3 {
+  margin-bottom: 8px;
+}
+
+/* Gentle on phones, and off for people who prefer less motion */
+@media (max-width: 600px) {
+
+  .about {
+    gap: 40px;
+  }
+
+  .val-body {
+    padding: 20px 20px 24px;
+  }
+
+  @keyframes drift {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -6px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .val {
+    animation: none;
+  }
 }
